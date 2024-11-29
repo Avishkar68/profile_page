@@ -194,9 +194,22 @@ function Profile() {
             </div>
 
             {/* details section */}
-            <div></div>
-            <div></div>
+            {allOpen ? (
+              <>
+                <div className="flex items-start justify-center gap-10">
+                  {/* first section */}
+                  <div>
+                    {/* first */}
+                    <div>
+                      
+                    </div>
+                  </div>
 
+                  {/* second section */}
+                  <div>dfsgsdg</div>
+                </div>
+              </>
+            ) : null}
           </div>
         ) : error ? (
           <p>Failed to fetch data</p>
