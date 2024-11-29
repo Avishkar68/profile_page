@@ -2,6 +2,28 @@ import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa";
 import { FaAngleUp } from "react-icons/fa";
+import { MdOutlineCheckBoxOutlineBlank } from "react-icons/md";
+import { CiBoxList } from "react-icons/ci";
+import { FaLocationDot } from "react-icons/fa6";
+import { CiCreditCard1 } from "react-icons/ci";
+import { BsChat } from "react-icons/bs";
+import { HiOutlineDesktopComputer } from "react-icons/hi";
+import { FaCircle } from "react-icons/fa";
+import { MdAlternateEmail } from "react-icons/md";
+import { CiLink } from "react-icons/ci";
+import { IoCall } from "react-icons/io5";
+import { FaScrewdriver } from "react-icons/fa";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { ImCheckboxChecked } from "react-icons/im";
+import { FaCaretSquareUp } from "react-icons/fa";
 
 function Profile() {
   const [data, setData] = useState(null);
@@ -196,17 +218,482 @@ function Profile() {
             {/* details section */}
             {allOpen ? (
               <>
-                <div className="flex items-start justify-center gap-10">
+                <div className="flex items-start justify-center gap-10 mt-6">
                   {/* first section */}
-                  <div>
+                  <div className="w-full">
                     {/* first */}
-                    <div>
-                      
+                    <div className="bg-gray-900 p-4 mb-4 flex flex-col gap-4 ">
+                      <div className="flex text-2xl justify-between items-center px-2 py-1">
+                        <div className="">
+                          <CiBoxList className="inline mr-6 " />
+                          Name & Company
+                        </div>
+                        <div>
+                          <FaCaretSquareUp />
+                        </div>
+                      </div>
+                      <table className="min-w-full table-auto border-collapse ">
+                        <tbody>
+                          <tr className="bg-black">
+                            <td className="px-4 py-2 ">Name:</td>
+                            <td className="px-4 py-2 ">
+                              {data.profileInfo.name}
+                            </td>
+                          </tr>
+                          <tr className="bg-gray-900">
+                            <td className="px-4 py-2 ">Company Name:</td>
+                            <td className="px-4 py-2 "></td>
+                          </tr>
+                          <tr className="bg-black">
+                            <td className="px-4 py-2 ">In Business Since:</td>
+                            <td className="px-4 py-2 ">01/17/2006</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    {/* second */}
+                    <div className="bg-gray-900 p-4 mb-4 flex flex-col gap-4 ">
+                      <div className="flex justify-between text-2xl items-center px-2 py-1">
+                        <div>
+                          {" "}
+                          <FaLocationDot className="inline mr-6" />
+                          Billing
+                        </div>
+                        <div>
+                          <FaCaretSquareUp />
+                        </div>
+                      </div>
+                      <div className="flex gap-2 ml-auto items-center">
+                        <div>Preferred</div>
+                        <ImCheckboxChecked />
+                      </div>
+                      <table className="min-w-full table-auto border-collapse ">
+                        <tbody>
+                          <tr className="bg-black">
+                            <td className="px-4 py-2 ">Address 1:</td>
+                            <td className="px-4 py-2 ">
+                              {data.details.billingAddress.address1}
+                            </td>
+                          </tr>
+                          <tr className="bg-gray-900">
+                            <td className="px-4 py-2 ">Address 2:</td>
+                            <td className="px-4 py-2 "></td>
+                          </tr>
+                          <tr className="bg-black">
+                            <td className="px-4 py-2 ">City:</td>
+                            <td className="px-4 py-2 ">
+                              {data.details.billingAddress.city}
+                            </td>
+                          </tr>
+                          <tr className="bg-gray-900">
+                            <td className="px-4 py-2 ">State:</td>
+                            <td className="px-4 py-2 ">
+                              {data.details.billingAddress.state}
+                            </td>
+                          </tr>
+                          <tr className="bg-black">
+                            <td className="px-4 py-2 ">Zip:</td>
+                            <td className="px-4 py-2 ">
+                              {data.details.billingAddress.zip}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    {/* third */}
+                    <div className="bg-gray-900 p-4 mb-4 flex flex-col gap-4 ">
+                      <div className="flex text-2xl justify-between items-center px-2 py-1">
+                        <div>
+                          <FaLocationDot className="inline mr-6" />
+                          Shipping
+                        </div>
+                        <div>
+                          <FaCaretSquareUp />
+                        </div>
+                      </div>
+                      <div className="flex gap-2 ml-auto items-center">
+                        <div>Preferred</div>
+                        <ImCheckboxChecked />
+                      </div>
+                      <table className="min-w-full table-auto border-collapse ">
+                        <tbody>
+                          <tr className="bg-black">
+                            <td className="px-4 py-2 ">Address 1:</td>
+                            <td className="px-4 py-2 ">
+                              {data.details.shippingAddress.address1}
+                            </td>
+                          </tr>
+                          <tr className="bg-gray-900">
+                            <td className="px-4 py-2 ">Address 2:</td>
+                            <td className="px-4 py-2 "></td>
+                          </tr>
+                          <tr className="bg-black">
+                            <td className="px-4 py-2 ">City:</td>
+                            <td className="px-4 py-2 ">
+                              {data.details.shippingAddress.city}
+                            </td>
+                          </tr>
+                          <tr className="bg-gray-900">
+                            <td className="px-4 py-2 ">State:</td>
+                            <td className="px-4 py-2 ">
+                              {data.details.shippingAddress.state}
+                            </td>
+                          </tr>
+                          <tr className="bg-black">
+                            <td className="px-4 py-2 ">Zip:</td>
+                            <td className="px-4 py-2 ">
+                              {data.details.shippingAddress.zip}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    {/* fourth */}
+                    <div className="bg-gray-900 p-4 mb-4 flex flex-col gap-4 ">
+                      <div className="flex justify-between text-2xl  items-center px-2 py-1">
+                        <div>
+                          <CiCreditCard1 className="inline mr-6" />
+                          Pricing Information
+                        </div>
+                        <div>
+                          <FaCaretSquareUp />
+                        </div>
+                      </div>
+
+                      <table className="min-w-full table-auto border-collapse">
+                        <thead>
+                          <tr>
+                            <th className="px-4 py-2 border-b">Description</th>
+                            <th className="px-4 py-2 border-b">Amount</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="bg-black text-white">
+                            <td className="px-4 py-2">Shipping Fee</td>
+                            <td className="px-4 py-2">$10</td>
+                          </tr>
+                          <tr>
+                            <td className="px-4 py-2">Handling Fee</td>
+                            <td className="px-4 py-2">$5</td>
+                          </tr>
+                          <tr className="bg-black text-white">
+                            <td className="px-4 py-2">Tax</td>
+                            <td className="px-4 py-2">$3</td>
+                          </tr>
+                          <tr>
+                            <td className="px-4 py-2">Product A</td>
+                            <td className="px-4 py-2">$50</td>
+                          </tr>
+                          <tr className="bg-black text-white">
+                            <td className="px-4 py-2">Product B</td>
+                            <td className="px-4 py-2">$30</td>
+                          </tr>
+                          <tr>
+                            <td className="px-4 py-2">Discount</td>
+                            <td className="px-4 py-2">-$10</td>
+                          </tr>
+                          <tr className="bg-black text-white">
+                            <td className="px-4 py-2">Total</td>
+                            <td className="px-4 py-2">$88</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div className="flex flex-col items-center justify-center">
+                        <p>Other Pricing Notes</p>
+                        <p>
+                          Rates are flexible and very depending on distance and
+                          time of day. Rates may be renegotioted at time of
+                          hiring.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* fifth */}
+                    <div className="bg-gray-900 p-4 mb-4 flex flex-col gap-4 ">
+                      <div className="flex text-2xl justify-between items-center px-2 py-1">
+                        <div>
+                          <BsChat className="inline mr-6" />
+                          Spoken Languages
+                        </div>
+                        <div>
+                          <FaCaretSquareUp />
+                        </div>
+                      </div>
+                      <div className="flex flex-col items-center justify-center">
+                        {data.details.spokenLanguages &&
+                        data.details.spokenLanguages.length > 0 ? (
+                          <ul className="list-disc text-left">
+                            {data.details.spokenLanguages.map(
+                              (language, index) => (
+                                <p key={index} className="py-1">
+                                  <div className="w-[580px] px-6 py-2 rounded-md bg-black">
+                                    {language}
+                                  </div>
+                                </p>
+                              )
+                            )}
+                          </ul>
+                        ) : (
+                          <p>No languages available</p>
+                        )}
+                      </div>
                     </div>
                   </div>
 
                   {/* second section */}
-                  <div>dfsgsdg</div>
+                  <div className="w-full">
+                    {/* first */}
+                    <div className="bg-gray-900 p-4 mb-4 flex flex-col gap-4 ">
+                      <div className="flex justify-between text-2xl items-center px-2 py-1">
+                        <div>
+                          <IoCall className="mr-6 inline" />
+                          Phone Numbers
+                        </div>
+                        <div>
+                          <FaCaretSquareUp />
+                        </div>
+                      </div>
+
+                      <table className="min-w-full table-auto border-collapse">
+                        <thead>
+                          <tr>
+                            <th className="px-4 py-2 border-b">Type</th>
+                            <th className="px-4 py-2 border-b">Number</th>
+                            <th className="px-4 py-2 border-b">Ext.</th>
+                            <th className="px-4 py-2 border-b">Pref</th>
+                            <th className="px-4 py-2 border-b">Text</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="bg-black text-white">
+                            <td className="px-12 py-2">Mobile</td>
+                            <td className="px-12 py-2">123456789</td>
+                            <td className="px-12 py-2"></td>
+                            <td className="px-12 py-2">
+                              <ImCheckboxChecked />
+                            </td>
+                            <td className="px-12 py-2">
+                              <MdOutlineCheckBoxOutlineBlank />
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div className="flex flex-col items-start justify-center">
+                        <p>Other Contact Info </p>
+                        <p>Text me @ 415-730-9899</p>
+                      </div>
+                    </div>
+
+                    {/* second */}
+                    <div className="bg-gray-900 p-4 mb-4 flex flex-col gap-4 ">
+                      <div className="flex text-2xl justify-between items-center px-2 py-1">
+                        <div>
+                          <MdAlternateEmail className="mr-6 inline" />
+                          Emails Address
+                        </div>
+                        <div>
+                          <FaCaretSquareUp />
+                        </div>
+                      </div>
+
+                      <table className="min-w-full table-auto border-collapse">
+                        <thead>
+                          <tr>
+                            <th className="px-4 py-2 border-b">Type</th>
+                            <th className="px-4 py-2 border-b">Address</th>
+                            <th className="px-4 py-2 border-b">Preferred</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="bg-black text-white">
+                            <td className="px-14 py-2">Work</td>
+                            <td className="px-14 py-2">akdpp@gmail.com</td>
+                            <td className="px-14 py-2">
+                              <ImCheckboxChecked />
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div className="flex flex-col items-start justify-center">
+                        <p>Other Contact Info </p>
+                        <p>Text me @ 415-730-9899</p>
+                      </div>
+                    </div>
+
+                    {/* third */}
+                    <div className="bg-gray-900 p-4 mb-4 flex flex-col gap-4 ">
+                      <div className="flex justify-between text-2xl items-center px-2 py-1">
+                        <div>
+                          <CiLink className="mr-6 inline" />
+                          Document Links
+                        </div>
+                        <div>
+                          <FaCaretSquareUp />
+                        </div>
+                      </div>
+
+                      <table className="min-w-full table-auto border-collapse">
+                        <thead>
+                          <tr>
+                            <th className="px-4 py-2 border-b">Type</th>
+                            <th className="px-4 py-2 border-b">URL</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="bg-black text-white">
+                            {data.details.documentLinks &&
+                            data.details.documentLinks.length > 0 ? (
+                              <>
+                                {data.details.documentLinks.map(
+                                  (item, index) => (
+                                    <>
+                                      <td>{item.documentType}</td>
+                                    </>
+                                  )
+                                )}
+                              </>
+                            ) : null}
+                          </tr>
+                          <tr className="bg-black text-white">
+                            {data.details.documentLinks &&
+                            data.details.documentLinks.length > 0 ? (
+                              <>
+                                {data.details.documentLinks.map(
+                                  (item, index) => (
+                                    <>
+                                      <td>{item.url}</td>
+                                    </>
+                                  )
+                                )}
+                              </>
+                            ) : null}
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div className="flex flex-col items-start justify-center">
+                        <p>Other Contact Info </p>
+                        <p>Text me @ 415-730-9899</p>
+                      </div>
+                    </div>
+
+                    {/* fifth */}
+                    <div className="bg-gray-900 p-4 mb-2 flex flex-col gap-4 ">
+                      <div className="flex text-2xl justify-between items-center px-2 py-1">
+                        <div>
+                          <FaScrewdriver className="inline mr-6" />
+                          Capabilities
+                        </div>
+                        <div>
+                          <FaCaretSquareUp />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-3 gap-4">
+                        <div className="flex gap-1 items-center">
+                          <p>csa</p>
+                          <ImCheckboxChecked />
+                        </div>
+                        <div className="flex gap-1 items-center">
+                          <p>attorney</p>
+                          <ImCheckboxChecked />
+                        </div>
+                        <div className="flex gap-1 items-center">
+                          <p>fax</p>
+                          <MdOutlineCheckBoxOutlineBlank />
+                        </div>
+                        <div className="flex gap-1 items-center">
+                          <p>email</p>
+                          <ImCheckboxChecked />
+                        </div>
+                        <div className="flex gap-1 items-center">
+                          <p>internet</p>
+                          <ImCheckboxChecked />
+                        </div>
+                        <div className="flex gap-1 items-center">
+                          <p>mobileHotspot</p>
+                          <ImCheckboxChecked />
+                        </div>
+                        <div className="flex gap-1 items-center">
+                          <p>eSign</p>
+                          <ImCheckboxChecked />
+                        </div>
+                        <div className="flex gap-1 items-center">
+                          <p>scanbacks</p>
+                          <ImCheckboxChecked />
+                        </div>
+                        <div className="flex gap-1 items-center">
+                          <p>print</p>
+                          <ImCheckboxChecked />
+                        </div>
+                      </div>
+
+                      <div className="flex flex-col items-start justify-center">
+                        <p>Other Capability Information </p>
+                        <p>Two HP Dual laser printers and scanners</p>
+                      </div>
+                    </div>
+
+                    {/* sixth */}
+                    <div className="bg-gray-900 p-4 mb-4 flex flex-col gap-4 ">
+                      <div className="flex text-2xl justify-between items-center px-2 py-1">
+                        <div>
+                          <HiOutlineDesktopComputer className="inline mr-6 " />
+                          Websites
+                        </div>
+                        <div>
+                          <FaCaretSquareUp />
+                        </div>
+                      </div>
+                      <div className="flex flex-col items-center justify-center">
+                        {data.details.websites &&
+                        data.details.websites.length > 0 ? (
+                          <ul className="list-disc  text-left ">
+                            {data.details.websites.map((web, index) => (
+                              <p key={index} className="py-1">
+                                <div className="w-[580px] px-6 py-2 rounded-md bg-black">
+                                  {web}
+                                </div>
+                              </p>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p>No languages available</p>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* seventh */}
+                    <div className="bg-gray-900 p-4 mb-4 flex flex-col gap-4 ">
+                      <div className="flex text-2xl justify-between items-center px-2 py-1">
+                        <div>
+                          <FaCircle className="inline mr-6" />
+                          Custom Fields
+                        </div>
+                        <div>
+                          <FaCaretSquareUp />
+                        </div>
+                      </div>
+                      <table className="min-w-full table-auto border-collapse ">
+                        <tbody>
+                          <tr className="bg-black">
+                            <td className="px-4 py-2 ">Field 1:</td>
+                            <td className="px-4 py-2 ">
+                              {data.details.customFields.field1}
+                            </td>
+                          </tr>
+                          <tr className="bg-black ">
+                            <td className="px-4 py-2 ">Field 2:</td>
+                            <td className="px-4 py-2 ">
+                              {data.details.customFields.field1}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
                 </div>
               </>
             ) : null}
